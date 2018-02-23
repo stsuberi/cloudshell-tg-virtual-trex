@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?>
+<DataModelInfo xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+               xmlns="http://schemas.qualisystems.com/ResourceManagement/DataModelSchema.xsd">
+    <Attributes>
+        <AttributeInfo Name="User"
+                       Type="String"
+                       DefaultValue=""
+                       IsReadOnly="false">
+            <Rules>
+                <Rule Name="Configuration"/>
+            </Rules>
+        </AttributeInfo>
+        <AttributeInfo Name="Password"
+                       Type="Password"
+                       DefaultValue="3M3u7nkDzxWb0aJ/IZYeWw=="
+                       IsReadOnly="false">
+            <Rules>
+                <Rule Name="Configuration"/>
+            </Rules>
+        </AttributeInfo>
+        <AttributeInfo Name="Update TRex"
+                       Description="If set to True the Shell will automatically try to install/update TRex. True by default."
+                       Type="Boolean"
+                       DefaultValue="False"
+                       IsReadOnly="false">
+            <Rules>
+                <Rule Name="Configuration"/>
+            </Rules>
+        </AttributeInfo>
+        <AttributeInfo Name="TRex Package URL"
+                       Description="The path to the TRex Package. The path should include the protocol type (for example 'http://trex-tgn.cisco.com/trex/release/latest')."
+                       Type="String"
+                       DefaultValue="http://trex-tgn.cisco.com/trex/release/latest"
+                       IsReadOnly="false">
+            <Rules>
+                <Rule Name="Configuration"/>
+            </Rules>
+        </AttributeInfo>
+        <AttributeInfo Name="TRex Server Config"
+                       Description="The path to the TRex Server Configuration."
+                       Type="String"
+                       DefaultValue=""
+                       IsReadOnly="false">
+            <Rules>
+                <Rule Name="Configuration"/>
+            </Rules>
+        </AttributeInfo>
+        <!--<AttributeInfo Name="Memory in GB" Type="Numeric" DefaultValue="4" IsReadOnly="false"-->
+                       <!--Description="(Optional) Amount of memory to set for the VM. If this value is not specified, the original or default amount of RAM will be used.">-->
+            <!--<Rules Override="false">-->
+                <!--<Rule Name="Setting"/>-->
+                <!--<Rule Name="Configuration"/>-->
+            <!--</Rules>-->
+        <!--</AttributeInfo>-->
+        <!--<AttributeInfo Name="Number of vCPUs" Type="Numeric" DefaultValue="2" IsReadOnly="false"-->
+                       <!--Description="">-->
+            <!--<Rules Override="false">-->
+                <!--<Rule Name="Setting"/>-->
+                <!--<Rule Name="Configuration"/>-->
+            <!--</Rules>-->
+        <!--</AttributeInfo>-->
+        <!--<AttributeInfo Name="Number of Ports" Type="Numeric" DefaultValue="2" IsReadOnly="false"-->
+                       <!--Description="">-->
+            <!--<Rules Override="false">-->
+                <!--<Rule Name="Setting"/>-->
+                <!--<Rule Name="Configuration"/>-->
+            <!--</Rules>-->
+        <!--</AttributeInfo>-->
+        <!--<AttributeInfo Name="Logical Name" Type="String" DefaultValue="" IsReadOnly="false"-->
+                       <!--Description="The port's logical name in the test configuration. If kept emtpy automatic allocation will apply.">-->
+            <!--<Rules Override="false">-->
+                <!--<Rule Name="Configuration"/>-->
+            <!--</Rules>-->
+        <!--</AttributeInfo>-->
+    </Attributes>
+    <ResourceFamilies>
+        <ResourceFamily Name="Virtual Traffic Generator Chassis" IsConnectable="false" IsLockedByDefault="true"
+                        Description="" IsSearchable="true" ResourceType="Application">
+            <AttachedAttributes>
+                <AttachedAttribute Name="User" IsOverridable="true" IsLocal="true">
+                    <AllowedValues/>
+                </AttachedAttribute>
+                <AttachedAttribute Name="Password" IsOverridable="true" IsLocal="true">
+                    <AllowedValues/>
+                </AttachedAttribute>
+            </AttachedAttributes>
+            <AttributeValues>
+                <AttributeValue Name="User" Value=""/>
+                <AttributeValue Name="Password" Value=""/>
+            </AttributeValues>
+            <Models>
+                <ResourceModel Name="Cisco TRex Chassis" Description="" SupportsConcurrentCommands="false">
+                    <AttachedAttributes>
+                        <AttachedAttribute Name="Update TRex" IsOverridable="true" IsLocal="true">
+                            <AllowedValues/>
+                        </AttachedAttribute>
+                        <AttachedAttribute Name="TRex Package URL" IsOverridable="true" IsLocal="true">
+                            <AllowedValues/>
+                        </AttachedAttribute>
+                        <AttachedAttribute Name="TRex Server Config" IsOverridable="true" IsLocal="true">
+                            <AllowedValues/>
+                        </AttachedAttribute>
+                    </AttachedAttributes>
+                    <AttributeValues>
+                        <AttributeValue Name="User" Value=""/>
+                        <AttributeValue Name="Password" Value=""/>
+                        <AttributeValue Name="Update TRex" Value="False"/>
+                        <AttributeValue Name="TRex Package URL" Value="http://trex-tgn.cisco.com/trex/release/latest"/>
+                        <AttributeValue Name="TRex Server Config" Value=""/>
+                    </AttributeValues>
+                    <ParentModels/>
+                    <Drivers>
+                        <DriverName>CiscoVirtualTRexDriver</DriverName>
+                    </Drivers>
+                </ResourceModel>
+            </Models>
+        </ResourceFamily>
+        <ResourceFamily Name="Port" IsSearchable="true" IsConnectable="true" IsLockedByDefault="true">
+            <AttachedAttributes/>
+            <AttributeValues/>
+            <Models>
+                <ResourceModel Name="Virtual Port" Description="" SupportsConcurrentCommands="false">
+                    <AttachedAttributes>
+                        <AttachedAttribute Name="Logical Name" IsOverridable="true" IsLocal="true">
+                            <AllowedValues/>
+                        </AttachedAttribute>
+                        <AttachedAttribute Name="Requested vNIC Name" IsOverridable="true" IsLocal="true">
+                            <AllowedValues/>
+                        </AttachedAttribute>
+                        <!--<AttachedAttribute Name="TRex Port UID" IsOverridable="true" IsLocal="true">-->
+                            <!--<AllowedValues/>-->
+                        <!--</AttachedAttribute>-->
+                    </AttachedAttributes>
+                    <AttributeValues>
+                        <AttributeValue Name="Logical Name" Value=""/>
+                        <AttributeValue Name="Requested vNIC Name" Value=""/>
+                        <!--<AttributeValue Name="TRex Port UID" Value=""/>-->
+                    </AttributeValues>
+                    <ParentModels>
+                        <ParentModelName>Cisco TRex Chassis</ParentModelName>
+                    </ParentModels>
+                    <Drivers/>
+                    <Scripts/>
+                </ResourceModel>
+            </Models>
+            <Categories/>
+        </ResourceFamily>
+    </ResourceFamilies>
+    <DriverDescriptors>
+        <DriverDescriptor Name="CiscoVirtualTRexDriver" DriverType="PythonDriver"/>
+    </DriverDescriptors>
+</DataModelInfo>

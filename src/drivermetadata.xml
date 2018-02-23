@@ -1,0 +1,10 @@
+<Driver Description="Describe the purpose of your CloudShell shell" MainClass="driver.CiscoVirtualTRexDriver" Name="CiscoVirtualTRexDriver" Version="1.0.0">
+    <Layout>
+        <Category Name="Hidden Commands">
+            <Command Name="pre_autoload_configuration_command"  Tags="" Description="configure vnics"/>
+            <Command Name="connect_child_resources"  Tags="" Description="" DisplayName="Connect Child Resources"/>
+            <Command Name="configure_device_command"  Tags="" Description="" DisplayName="Configure Device"/>
+            <Command Name="install_trex"  Tags="" Description="" DisplayName="Install TRex Server"/>
+        </Category>
+    </Layout>
+</Driver>

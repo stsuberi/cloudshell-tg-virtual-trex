@@ -1,0 +1,7 @@
+shell:
+    name: cisco-virtual-trex
+    author: Quali
+    email: info@quali.com
+    description: Cisco Virtual TRex Shell
+    version: 1.0.0
+    driver_name: CiscoVirtualTRexDriver
